@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+
+    <input id="textArea" type="text" placeholder="Enter the String" required/>
+    <h2 class="text"></h2>
+    <button id="btn">Submit</button>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
+
+
+
+let text=document.querySelector('.text');
+
+document.getElementById("btn").addEventListener("click",function(event){
+    let str=document.querySelector('#textArea').value;
+    if(solve(str))
+    {
+        text.innerText=str+" is an integer";
+    }
+    else
+    {
+        text.innerText=str+" is not an integer";
+    }
+    event.preventDefault();
+});
+
+function solve(str)
+{
+    if (typeof str !== 'string')
+    {
+        return false;
+    }
+
+    let num=Number(str);
+
+    if (Number.isInteger(num) && num > 0) 
+    {
+        return true;
+    }
+
+  return false;
+}
+
+
